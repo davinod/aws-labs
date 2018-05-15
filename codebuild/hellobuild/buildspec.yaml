@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "this is a command executed during install phase"
+  pre_build:
+    commands:
+      - echo "This is a command executed during pre_build phase"
+      - docker login –u User –p $LOGIN_PASSWORD
+  build:
+    commands:
+      - echo "This is a command executed during build phase"
+      - echo Build started on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo "This is a command executed during post_build phase"
